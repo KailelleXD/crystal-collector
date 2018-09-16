@@ -43,11 +43,11 @@ Pseudo-code/Steps:
 
 3. (Make a personal effort to really keep your code organized!)
 
-4. Think about what variables I'm going to need for this game. Write them down.
+4. [x]Think about what variables I'm going to need for this game. Write them down.
 
-5. Think about different functions and how they might be arranged. Write those down.
+5. [x]Think about different functions and how they might be arranged. Write those down.
 
-6. Psuedo-code the structure for the game-code.
+6. [x]Psuedo-code the structure for the game-code.
 
 7. Write the code.
 
