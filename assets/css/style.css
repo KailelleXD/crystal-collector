@@ -34,3 +34,7 @@ body {
 #primaryNumber {
     font-family: 'Handlee', cursive;;
 }
+
+#startReset {
+    cursor: pointer;
+}
