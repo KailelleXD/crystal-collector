@@ -29,3 +29,8 @@ body {
     max-width: 1080px;
     text-align: center;
 }
+
+#playerNumber,
+#primaryNumber {
+    font-family: 'Handlee', cursive;;
+}
