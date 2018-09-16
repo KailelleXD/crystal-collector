@@ -1,0 +1,26 @@
+body {
+    background-image: url("../../bg-blue-crystals.jpg");
+    background-size: cover;
+}
+
+.bg-color {
+    background: linear-gradient();
+}
+
+#crystal {
+    letter-spacing: 7.5px;
+}
+
+#contentWrapper {
+    font-family: 'Cinzel Decorative', cursive;
+    background-color: rgba(140, 231, 235, 0.15);
+}
+
+#infoPanel {
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+#infoBar {
+    font-family: 'Handlee', cursive;
+    background-color: rgba(255, 255, 255, .60);
+}

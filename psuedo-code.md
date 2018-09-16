@@ -37,9 +37,9 @@
 
 Pseudo-code/Steps:
 
-1. Wireframe on paper, what I would like this game to look like based on the specifications that have been presented to me.
+1. [x] Wireframe on paper, what I would like this game to look like based on the specifications that have been presented to me.
 
-2. Create the basic HTML structure so that I can begin to mainpulate the DOM through the use of jQuery.
+2. [x] Create the basic HTML structure so that I can begin to mainpulate the DOM through the use of jQuery.
 
 3. (Make a personal effort to really keep your code organized!)
 
