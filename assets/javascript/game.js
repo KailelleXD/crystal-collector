@@ -36,6 +36,36 @@ $(document).ready(function() {
         return Math.floor(Math.random() * (upper - lower + 1)) + lower;
     }
 
+    // Generates a random integer between 19-120 and assigns it to the variable rand.
+    function setPrimaryNumber() {
+        // Function expression, randomNum(19,120);
+        rand = randomNum(19, 120);
+        ////
+        console.log("The value of rand is: " + rand);
+    }
+
+    // Performs randomNum function for each crystal at start of each round/game.
+    function setCrystals() {
+            crystal1 = function() {
+                randomNum(1,12);
+                // console.log("crystal1: " + crystal1);
+            }
+            crystal2 = function() {
+                randomNum(1,12);
+                // console.log("crystal2: " + crystal2);
+            }
+            crystal3 = function() {
+                randomNum(1,12);
+                // console.log("crystal3: " + crystal3);
+            }
+            crystal4 = function() {
+                randomNum(1,12);
+                // console.log("crystal4: " + crystal4);
+            }
+    } // Stopped here for the night, I think I am having an issue with scope.
+   
+    
+
     // Resets win/lose counters, score, lives, and clears primary/player numbers.
     function resetGame() {
         // If-Then statement, IF resetGame==true, THEN execute the following code.
@@ -47,12 +77,6 @@ $(document).ready(function() {
             // Assign "" to primaryNumber.
             // Assign "" to playerNumber.
             // Assign "false" to resetGame.
-    }
-
-    // Performs randomNum function for each crystal at start of each round/game.
-    function crystalCalc(crystal) {
-        // for-loop iterates 4 times to assign a random value between 1 - 12 to each crystal.
-            // function expression written to iterate in for-loop for each crystal (contains randomNum(); call-back function)
     }
     
     // Registers each mouse-click and adds an integer to playerNumber.
@@ -78,12 +102,17 @@ $(document).ready(function() {
     }
 
     // Begin Main Game Code ////
+    setPrimaryNumber();
+    setCrystals();
 
-        // Callback function, randomNum(19,120);
-        // console.log result.
+    console.log("the value of rand is: " + rand);
+    console.log(crystal1,crystal2,crystal3,crystal4);
 
-        var rand = randomNum(19, 120);
-        console.log("The value of rand is: " + rand);
+        
+
+        
+
+
 
 // $("button").click(function() {
 //     $("p").slideToggle();
