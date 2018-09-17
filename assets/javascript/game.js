@@ -63,22 +63,25 @@ $(document).ready(function() {
     
     // Grabs corresponding crystal value and adds it to playerNumber, to then display at #playerNumber.
     function crystalCalc() {
-        $("#crystal1").on("click", function() {
-            playerNumber = playerNumber + crystal1;
-            targetPlayerNumber.html(playerNumber);
-        });
-        $("#crystal2").on("click", function() {
-            playerNumber = playerNumber + crystal2;
-            targetPlayerNumber.html(playerNumber);
-        });
-        $("#crystal3").on("click", function() {
-            playerNumber = playerNumber + crystal3;
-            targetPlayerNumber.html(playerNumber);
-        });
-        $("#crystal4").on("click", function() {
-            playerNumber = playerNumber + crystal4;
-            targetPlayerNumber.html(playerNumber);
-        });        
+        if (gameStatus == true) {
+            $("#crystal1").on("click", function() {
+                playerNumber = playerNumber + crystal1;
+                targetPlayerNumber.html(playerNumber);
+            });
+            $("#crystal2").on("click", function() {
+                playerNumber = playerNumber + crystal2;
+                targetPlayerNumber.html(playerNumber);
+            });
+            $("#crystal3").on("click", function() {
+                playerNumber = playerNumber + crystal3;
+                targetPlayerNumber.html(playerNumber);
+            });
+            $("#crystal4").on("click", function() {
+                playerNumber = playerNumber + crystal4;
+                targetPlayerNumber.html(playerNumber);
+            });
+        }       
+
     } //completed
 
     // Resets win/lose counters, score, lives, and clears primary/player numbers.
@@ -167,8 +170,11 @@ $(document).ready(function() {
                 break;
 
             case 0:
-                targetLives.html("<h4>" + "GAME OVER!" + "</h4>");
-                console.log("You Lost the GAME, hit START to Play again!")
+                targetLives.html("<h4>" + "[ GAME OVER! ] &nbsp;&nbsp;&nbsp; Click here to play again! -->" + "</h4>");
+                targetStartReset.html("<h4>" + "[ START ]" + "</h4>");
+                $("img").css("cursor", "not-allowed");
+                $("img").off("click");
+                gameStatus = false;                           
         }
     } //completed
 
@@ -193,15 +199,12 @@ $(document).ready(function() {
                 winLoseCheck();
 
             } else if (startReset == true) {
-                // targetStartReset.html("<h4>" + "[ START ]" + "</h4>");
-                // $("img").css("cursor", "auto");
-
-                ////diagnostic-tool////
-                consoleClickCheck();
 
                 resetGame();
                 ////
                 console.log("You clicked the RESET button!");
+            } else if (gameStatus == false) {
+                console.log("Click Start to play!");
             }
         });
     }
@@ -211,7 +214,7 @@ $(document).ready(function() {
     function consoleClickCheck() {                                            //
         $(document).on("click", function() {
             // console.log("playerNumber: " + playerNumber);
-            console.log("primaryNumber: " + primaryNumber);
+            // console.log("primaryNumber: " + primaryNumber);
             console.log("gameStatus: " + gameStatus);
             console.log("startReset: " + startReset);
         })
@@ -225,4 +228,8 @@ $(document).ready(function() {
         targetLives.html("Click here to play! -->");
         gameStartReset();        
     }
+
 });
+
+
+
