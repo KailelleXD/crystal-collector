@@ -18,7 +18,7 @@ $(document).ready(function() {
     // Boolean Variables ////
 
     var gameStatus = false;
-    var resetGame = false;
+    var startReset = false;
 
     // Target IDs ////
 
@@ -26,8 +26,8 @@ $(document).ready(function() {
     targetLives = $("#lives");
     targetPrimaryNumber = $("#primaryNumber");
     targetPlayerNumber = $("#playerNumber");
-    targetWinPanel = $("#winPanel");
-    targetLossPanel = $("#lossPanel");
+    targetNumOfWins = $("#numOfWins");
+    targetNumOfLosses = $("#numOfLosses");
     targetStartReset = $("#startReset");
 
     // Function Declarations ////
@@ -83,15 +83,20 @@ $(document).ready(function() {
 
     // Resets win/lose counters, score, lives, and clears primary/player numbers.
     function resetGame() {
-        if (resetGame == true && gameStatus == true) {
-            gameStatus = false;
+        if (startReset == true && gameStatus == true) {
+            ////
+            console.log("The resetGame(); function was called.");
+            // gameStatus = false;
             winCounter = 0;
             lossCounter = 0;
+            targetNumOfWins.text("__");
+            targetNumOfLosses.text("__");
             score = 0;
             lives = 5;
             primaryNumber = 0;
             playerNumber = 0;
-            resetGame = false;
+            livesSwitchState();
+            // startReset = false;
         }
     }
 
@@ -111,19 +116,23 @@ $(document).ready(function() {
         $(document).on("click", function() {
             if (playerNumber == primaryNumber) {
                 winCounter++;
+                targetNumOfWins.text(winCounter);
                 score = score + playerNumber;
                 targetScore.text(score);
                 resetRound();
                 ////
+                console.log("function winLoseCheck(); has been called. (WIN)")
                 console.log("You Won!");
             } else if (playerNumber > primaryNumber) {
                 lossCounter++;
+                targetNumOfLosses.text(lossCounter);
                 lives--;
                 livesSwitchState();                
                 score = score - playerNumber;
                 targetScore.text(score);
                 resetRound();
                 ////
+                console.log("function winLoseCheck(); has been called. (LOSS)")
                 console.log("You Lost!");
             }
         })
@@ -157,20 +166,34 @@ $(document).ready(function() {
         }
     } //completed
 
-    function btnStartReset() {
+    function gameStartReset() {
         $("#startReset").on("click", function() {
-            if (resetGame == false) {
+            if (startReset == false) {
                 targetStartReset.html("<h4>" + "[ RESET ]" + "</h4>");
-                resetGame = true;
+                targetLives.html("X X X X X");
+                $("img").css("cursor", "pointer");
+                gameStatus = true;
+                startReset = true;
                 ////
-                console.log("startReset btn switched to true")
-            } else if (resetGame == true) {
-                targetStartReset.html("<h4>" + "[ START ]" + "</h4>");
-                resetGame = false;
+                console.log("startReset switched to: " + startReset);
+                console.log("gameStatus switched to: " + gameStatus);
+
+                setPrimaryNumber();
                 ////
-                console.log("startReset btn switched to false")
+                console.log("primaryNumber: " + primaryNumber);
+            
+                setCrystals();
+                crystalCalc();
+                winLoseCheck();
+
+            } else if (startReset == true) {
+                // targetStartReset.html("<h4>" + "[ START ]" + "</h4>");
+                // $("img").css("cursor", "auto");
+                resetGame();
+                ////
+                console.log("You clicked the RESET button!");
             }
-        });        
+        });
     }
 
     //------------------------------------------------------------------------//
@@ -184,20 +207,10 @@ $(document).ready(function() {
     // consoleClickCheck(); // Comment-in this line to use the above function.//
     //------------------------------------------------------------------------//
 
-    // Begin Main Game Code ////
-    btnStartReset();
-    setPrimaryNumber();
-    ////
-    console.log("primaryNumber: " + primaryNumber);
-
-    setCrystals();
-    crystalCalc();
-    winLoseCheck();
-
-    
-
-
-    
-
-
+    // Begin Main Game Code ////   
+    if (gameStatus == false) {
+        console.log("Hit start to proceed");
+        targetLives.html("Click here to play! -->");
+        gameStartReset();        
+    }
 });
