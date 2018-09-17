@@ -49,9 +49,9 @@ Pseudo-code/Steps:
 
 6. [x]Psuedo-code the structure for the game-code.
 
-7. Write the code.
+7. [x]Write the code.
 
-8. test/debug/test/debug.
+8. [x]test/debug/test/debug.
 
 9. Once game is at it's most basic finish status, read and consider to implement any bonus material either stated within the instructions or otherwise.
 

@@ -55,10 +55,10 @@ $(document).ready(function() {
         crystal3 = randomNum(1,12);
         crystal4 = randomNum(1,12);
         ////
-        // console.log("crystal 1: " + crystal1);
-        // console.log("crystal 2: " + crystal2);
-        // console.log("crystal 3: " + crystal3);
-        // console.log("crystal 4: " + crystal4);
+        console.log("crystal 1: " + crystal1);
+        console.log("crystal 2: " + crystal2);
+        console.log("crystal 3: " + crystal3);
+        console.log("crystal 4: " + crystal4);
     } //completed
     
     // Grabs corresponding crystal value and adds it to playerNumber, to then display at #playerNumber.
@@ -105,7 +105,6 @@ $(document).ready(function() {
             targetPlayerNumber.html("&nbsp;&nbsp;");
             setPrimaryNumber();
             setCrystals();
-            crystalCalc();
         }
     }
 
@@ -227,10 +226,14 @@ $(document).ready(function() {
     //Diagnostic-tools                                                        //
     function consoleClickCheck() {                                            //
         $(document).on("click", function() {
-            // console.log("playerNumber: " + playerNumber);
+            console.log("playerNumber: " + playerNumber);
             // console.log("primaryNumber: " + primaryNumber);
             // console.log("gameStatus: " + gameStatus);
             // console.log("startReset: " + startReset);
+            console.log("crystal 1: " + crystal1);
+            console.log("crystal 2: " + crystal2);
+            console.log("crystal 3: " + crystal3);
+            console.log("crystal 4: " + crystal4);
         })
     } //function to console.log on each click.                                //
     // consoleClickCheck(); // Comment-in this line to use the above function.//
@@ -243,6 +246,8 @@ $(document).ready(function() {
         $("img").css("cursor", "not-allowed");
         gameStartReset();        
     }
+
+    consoleClickCheck();
 
 });
 
