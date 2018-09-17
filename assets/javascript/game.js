@@ -55,10 +55,10 @@ $(document).ready(function() {
         crystal3 = randomNum(1,12);
         crystal4 = randomNum(1,12);
         ////
-        console.log("crystal 1: " + crystal1);
-        console.log("crystal 2: " + crystal2);
-        console.log("crystal 3: " + crystal3);
-        console.log("crystal 4: " + crystal4);
+        // console.log("crystal 1: " + crystal1);
+        // console.log("crystal 2: " + crystal2);
+        // console.log("crystal 3: " + crystal3);
+        // console.log("crystal 4: " + crystal4);
     } //completed
     
     // Grabs corresponding crystal value and adds it to playerNumber, to then display at #playerNumber.
