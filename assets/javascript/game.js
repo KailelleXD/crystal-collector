@@ -63,7 +63,7 @@ $(document).ready(function() {
     
     // Grabs corresponding crystal value and adds it to playerNumber, to then display at #playerNumber.
     function crystalCalc() {
-        if (gameStatus == true) {
+        if (gameStatus == true && startReset == true) {
             $("#crystal1").on("click", function() {
                 playerNumber = playerNumber + crystal1;
                 targetPlayerNumber.html(playerNumber);
@@ -102,9 +102,10 @@ $(document).ready(function() {
             playerNumber = 0;
             livesSwitchState();
             targetScore.text("0000");
-            targetPlayerNumber.html("");
+            targetPlayerNumber.html("&nbsp;&nbsp;");
             setPrimaryNumber();
             setCrystals();
+            crystalCalc();
         }
     }
 
@@ -173,8 +174,21 @@ $(document).ready(function() {
                 targetLives.html("<h4>" + "[ GAME OVER! ] &nbsp;&nbsp;&nbsp; Click here to play again! -->" + "</h4>");
                 targetStartReset.html("<h4>" + "[ START ]" + "</h4>");
                 $("img").css("cursor", "not-allowed");
-                $("img").off("click");
-                gameStatus = false;                           
+                $("img").off("click");       
+                
+                gameStatus = false;
+                startReset = false;
+                console.log("gameStatus: " + gameStatus);
+                winCounter = 0;
+                lossCounter = 0;
+                targetNumOfWins.text("__");
+                targetNumOfLosses.text("__");
+                score = 0;
+                lives = 5;
+                primaryNumber = 0;
+                playerNumber = 0;
+                targetScore.text("0000");
+                targetPlayerNumber.html("&nbsp;&nbsp;");    
         }
     } //completed
 
@@ -199,7 +213,7 @@ $(document).ready(function() {
                 winLoseCheck();
 
             } else if (startReset == true) {
-
+                
                 resetGame();
                 ////
                 console.log("You clicked the RESET button!");
@@ -226,8 +240,11 @@ $(document).ready(function() {
     if (gameStatus == false) {
         console.log("Hit start to proceed");
         targetLives.html("Click here to play! -->");
+        $("img").css("cursor", "not-allowed");
         gameStartReset();        
     }
+
+    consoleClickCheck();
 
 });
 
