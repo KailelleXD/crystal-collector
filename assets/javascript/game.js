@@ -86,7 +86,9 @@ $(document).ready(function() {
         if (startReset == true && gameStatus == true) {
             ////
             console.log("The resetGame(); function was called.");
-            // gameStatus = false;
+            gameStatus = false;
+            ////
+            console.log("gameStatus: " + gameStatus);
             winCounter = 0;
             lossCounter = 0;
             targetNumOfWins.text("__");
@@ -96,10 +98,14 @@ $(document).ready(function() {
             primaryNumber = 0;
             playerNumber = 0;
             livesSwitchState();
-            // startReset = false;
+            targetScore.text("0000");
+            targetPlayerNumber.html("");
+            setPrimaryNumber();
+            setCrystals();
         }
     }
 
+    // Reseets player/primary values, calls setPrimaryNumber(); and setCrystals();
     function resetRound() {
         playerNumber = 0;
         primaryNumber = 0;
@@ -114,7 +120,7 @@ $(document).ready(function() {
     // Checks if the playerNumber is equal to (or larger than) the primaryNumber.
     function winLoseCheck() {
         $(document).on("click", function() {
-            if (playerNumber == primaryNumber) {
+            if (playerNumber == primaryNumber && gameStatus == true) {
                 winCounter++;
                 targetNumOfWins.text(winCounter);
                 score = score + playerNumber;
@@ -189,6 +195,10 @@ $(document).ready(function() {
             } else if (startReset == true) {
                 // targetStartReset.html("<h4>" + "[ START ]" + "</h4>");
                 // $("img").css("cursor", "auto");
+
+                ////diagnostic-tool////
+                consoleClickCheck();
+
                 resetGame();
                 ////
                 console.log("You clicked the RESET button!");
@@ -200,8 +210,10 @@ $(document).ready(function() {
     //Diagnostic-tools                                                        //
     function consoleClickCheck() {                                            //
         $(document).on("click", function() {
-            console.log("playerNumber: " + playerNumber);
-            console.log("primaryNumber: " + primaryNumber)
+            // console.log("playerNumber: " + playerNumber);
+            console.log("primaryNumber: " + primaryNumber);
+            console.log("gameStatus: " + gameStatus);
+            console.log("startReset: " + startReset);
         })
     } //function to console.log on each click.                                //
     // consoleClickCheck(); // Comment-in this line to use the above function.//
