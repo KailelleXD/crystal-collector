@@ -1,5 +1,7 @@
 # Crystal Collector
 
+With each round the four crystals will possess different numbers. Click on each crystal to collect (and ADD) it to your collection. TRY to match the number at the top to raise your score! If you go over, you lose and that number is subtracted from your score!
+
 ## Motivation
 
 Beyond being a simple math-based puzzle game, I wanted to create a game that was less about my own personal preferences and more towards what I would imagine a client would want out of a game called, "Crystal Collector."
